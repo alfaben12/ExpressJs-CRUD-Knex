@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+	body
+		h2 Buku
+		form(action='/processAdd?_method=POST', method='POST')
+			| Judul:
+			br
+			input(type='text', name='judul')
+			br
+			|  Sinopsis:
+			br
+			textarea(name='sinopsis')
+			br
+			| Penulis:
+			br
+			input(type='text', name='penulis')
+			br
+			button(type='submit') Submit

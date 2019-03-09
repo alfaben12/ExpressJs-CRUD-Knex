@@ -1,0 +1,54 @@
+doctype html
+html
+	head
+		style.
+			#customers {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+			}
+			#customers td,
+			#customers th {
+			border: 1px solid #ddd;
+			padding: 8px;
+			}
+			#customers tr:nth-child(even) {
+			background-color: #f2f2f2;
+			}
+			#customers tr:hover {
+			background-color: #ddd;
+			}
+			#customers th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: left;
+			background-color: #4CAF50;
+			color: white;
+			}
+			a {
+			color: green;
+			}
+	body
+		a(href='/add/') New
+		table#customers
+			thead
+				tr
+					th No
+					th Judul
+					th Sinopsis
+					th Penulis
+					th Edit
+					th Delete
+			tbody
+			each val, i in data
+				tr
+					td #{i + 1}
+					td #{val.judul}
+					td #{val.sinopsis}
+					td #{val.penulis}
+					td 
+						form(action=`modify/${val.id}` method="get")
+							input(type="submit" value="Edit")
+					td 
+						form(action=`processDelete/${val.id}?_method=DELETE` method="post")
+							input(type="submit" value="Hapus")

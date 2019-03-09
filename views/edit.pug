@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+	body
+		h2 Buku
+		each val, i in data
+			form(action='/processModify/'+ val.id +'?_method=PUT', method='POST')
+				| Judul:
+				br
+				input(type='text', name='judul', value=val.judul)
+				br
+				|  Sinopsis:
+				br
+				textarea(name='sinopsis') #{val.sinopsis}
+				br
+				| Penulis:
+				br
+				input(type='text', name='penulis', value=val.penulis)
+				br
+				button(type='submit') Submit
